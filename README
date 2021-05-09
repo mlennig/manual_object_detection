@@ -1,0 +1,51 @@
+
+Upon running, this code will:
+
+1. Rename all the photos in the camera folder, using the floats (MUST HAVE A DECIMAL PLACE) from the heading.txt.
+
+2. Move all renamed photos into the unprocessed folder, EXCEPT the heading.txt
+
+3. Open a photo from your unprocessed_path.
+ 
+4. Upon clicking on the photo, the program will prompt you with a dialog box. 
+
+5. If you detected an object, you must fill in the required information. 
+
+6. Next, choose the appropriate button (see: DIALOG BOX, below)
+
+7. If an object was detected, a cropped image of the object (4' x 4') (location where you clicked) will be saved to your specified folder (see: MUST HAVE, below), along with it's corresponding JSON file. Cropped photo and JSON are named with an integer which increments with each new object recorded. 
+
+8. If all objects in the current photo have been detected, the next image will open.
+
+9. Once all images have been processed, the program will end. 
+
+10. You will locate your specified folder (see: MUST HAVE, below) with the cropped images and JSON files and transfer them onto a USB. 
+
+
+BEFORE THIS CODE IS FUNCTIONAL, YOU:
+
+MUST HAVE:
+1. A folder of images directly from the camera, and a .txt file with the headings of the drone, in the same order as the images appear in the folder (first heading listed corresponds to first image, e.g. GOPRO0001). ALL HEADINGS MUST BE FLOATS, AKA, HAVE A DECIMAL POINT AT THE END. (camera)
+2. An empty folder of images (unprocessed_path)
+3. An empty folder where you will keep the images once they have been processed (processed_path)
+4. An empty folder folder where you will store your cropped images of the detected objects with their corresponding JSON (UAVConcordia)
+
+MUST EDIT:
+in clicpic.py:
+unprocessed_path (This is the folder where the images that have already been viewed go)
+
+camera (This is the folder where the images that have NOT BEEN RENAMED go, along with the HEADINGS.TXT)
+
+self.processed_path(This is the folder where the images that have NOT already been viewed go)
+self.uav_concordia (This is the folder where the images and JSONs will go. You will put this folder on a USB to deliver to the judges)
+
+DIALOG BOX (appears when you click on an image):
+
+"Record/Advance" = Record click coordinates, advance to next photo (there are no other objects in this image that I need to record)
+
+"Cancel/Remain" = Do NOT record the click coordinates, I clicked somewhere by mistake. 
+
+"Skip/Advance" = There are NO objects in this photo that I need to record, advance to next photo.
+
+"Record/Remain" = Record click coordinates, there are MORE OBJECTS that I need to record in this photo. Do NOT advance me to the next photo yet. 
+
